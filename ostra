@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* O Contentor da Cena */
+        .mar {
+            background: radial-gradient(circle, #1e293b, #03081e);
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px; /* Dá profundidade 3D */
+        }
+
+        .ostra {
+            position: relative;
+            width: 200px;
+            height: 160px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+
+        /* Concha Superior */
+        .topo {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background: #e2e8f0;
+            border: 4px solid #94a3b8;
+            border-radius: 100px 100px 20px 20px;
+            z-index: 3;
+            transform-origin: bottom; /* Eixo de rotação */
+            transition: transform 2s ease-in-out;
+            box-shadow: inset 0 10px 20px white;
+        }
+
+        /* Concha Inferior */
+        .base {
+            position: absolute;
+            bottom: 0;
+            width: 200px;
+            height: 100px;
+            background: #cbd5e1;
+            border: 4px solid #94a3b8;
+            border-radius: 20px 20px 100px 100px;
+            z-index: 1;
+        }
+
+        /* A Pérola Negra */
+        .perola {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle at 30% 30%, #475569, #0f172a);
+            border-radius: 50%;
+            z-index: 2;
+            transition: transform 1.5s ease-in-out 0.8s; /* Aparece com atraso */
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        /* Estado Animado (Aberto) */
+        .ostra:hover .topo {
+            transform: rotateX(-110deg) translateZ(10px);
+        }
+
+        .ostra:hover .perola {
+            transform: translateX(-50%) scale(1);
+            box-shadow: 0 0 30px rgba(140, 115, 51, 0.6);
+        }
+
+        .instrucao {
+            color: white;
+            font-family: sans-serif;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mar">
+    <div class="ostra">
+        <div class="topo"></div>
+        <div class="perola"></div>
+        <div class="base"></div>
+    </div>
+</div>
+<p class="instrucao">Passe o rato (ou clique) sobre a ostra para ver o milagre da pérola negra.</p>
+
+</body>
+</html>
