@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Desfecho da Jornada - Dra. Débora</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght=1,400&family=Dancing+Script:wght=600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Lora:ital,wght=1,400&family=Dancing+Script:wght=600&display=swap" rel="stylesheet">
     <style>
         :root {
             --ouro-velho: #8c6d31;
@@ -67,10 +67,10 @@
             backdrop-filter: blur(8px);
         }
 
-        /* Lado Esquerdo: A Arte Realista da Mente Geológica, Árvore e Coração */
+        /* Lado Esquerdo: A Arte Realista da Mente Psiquiátrica e Coração */
         .area-imagem {
-            flex: 1.2;
-            background-image: url('SUA_IMAGEM_AQUI.jpg'); /* Substitua pelo link ou nome do arquivo da imagem salva */
+            flex: 1.3;
+            background-image: url('brain_heart_art.jpg'); /* Nome do arquivo que você vai salvar */
             background-size: cover;
             background-position: center;
             position: relative;
@@ -82,7 +82,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent 70%, rgba(15, 23, 42, 0.9) 100%);
+            background: linear-gradient(90deg, transparent 75%, rgba(10, 15, 30, 0.95) 100%);
         }
 
         /* Lado Direito: O texto poético */
@@ -94,7 +94,7 @@
             justify-content: center;
             color: #f1f5f9;
             text-align: right;
-            background: rgba(10, 15, 30, 0.7);
+            background: rgba(10, 15, 30, 0.85);
         }
 
         .mensagem {
@@ -129,8 +129,8 @@
         /* Responsividade para Celulares */
         @media (max-width: 900px) {
             .painel-artistico { flex-direction: column; height: auto; max-height: none; }
-            .area-imagem { height: 300px; border-right: none; border-bottom: 1px solid rgba(140, 109, 49, 0.2); }
-            .area-imagem::after { background: linear-gradient(180deg, transparent 60%, rgba(10, 15, 30, 0.9) 100%); }
+            .area-imagem { height: 350px; border-right: none; border-bottom: 1px solid rgba(140, 109, 49, 0.2); }
+            .area-imagem::after { background: linear-gradient(180deg, transparent 60%, rgba(10, 15, 30, 0.95) 100%); }
             .conteudo-texto { text-align: center; padding: 30px; }
         }
     </style>
@@ -163,12 +163,12 @@
         const cosmos = document.getElementById('cosmos');
         const fragmento = document.createDocumentFragment();
 
-        // Criação das estrelas pulsantes (Prata e Incandescentes)
-        for (let i = 0; i < 120; i++) {
+        // Gerador do céu estrelado dinâmico
+        for (let i = 0; i < 130; i++) {
             const estrela = document.createElement('div');
             estrela.className = 'estrela';
             
-            const isHot = Math.random() > 0.75; // 25% serão incandescentes quentes
+            const isHot = Math.random() > 0.75; // Mistura entre estrelas frias (prata) e quentes (incandescentes)
             estrela.style.background = isHot ? '#ff9d00' : '#e2e8f0';
             if(isHot) estrela.style.boxShadow = '0 0 10px #ff9d00, 0 0 4px #ff5500';
             else estrela.style.boxShadow = '0 0 6px #e2e8f0';
@@ -180,7 +180,6 @@
             estrela.style.top = Math.random() * 100 + '%';
             estrela.style.left = Math.random() * 100 + '%';
             
-            // Ritmo de pulsação dessincronizado
             estrela.style.setProperty('--d', (Math.random() * 4 + 2) + 's');
             
             fragmento.appendChild(estrela);
