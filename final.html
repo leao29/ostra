@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Desfecho da Jornada - Dra. Débora</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@1,400&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Lora:ital,wght@1,400&family=Dancing+Script:wght=600&display=swap" rel="stylesheet">
     <style>
         :root {
             --ouro-velho: #8c6d31;
@@ -21,20 +21,12 @@
             font-family: 'Lora', serif;
         }
 
-        /* FUNDO DIVIDIDO: CÓSMICO E PAPEL */
-        .container-principal {
-            display: flex;
-            width: 100vw;
-            height: 100vh;
-            background: linear-gradient(90deg, #020617 50%, #1a1005 100%);
-        }
-
-        /* ESTRELAS */
+        /* AJUSTE: O cosmos agora fica acima do fundo, mas abaixo do envelope */
         #cosmos {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
-            z-index: 1;
+            z-index: 2;
         }
 
         .estrela {
@@ -48,7 +40,16 @@
             50% { opacity: 1; transform: scale(1.2); filter: blur(1px); }
         }
 
-        /* ENVELOPE ENVELHECIDO */
+        /* AJUSTE: Fundo com transparência para as estrelas aparecerem */
+        .container-principal {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(90deg, rgba(2,6,23,0.7) 50%, rgba(26,16,5,0.8) 100%);
+            position: relative;
+            z-index: 3;
+        }
+
         .area-envelope {
             position: relative;
             z-index: 10;
@@ -74,7 +75,6 @@
             align-items: center;
         }
 
-        /* ÁRVORE E CORAÇÃO */
         .container-arvore {
             flex: 1;
             position: relative;
@@ -86,31 +86,31 @@
         .arvore-svg {
             width: 300px;
             filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
-            z-index: 2;
+            z-index: 4;
         }
 
+        /* AJUSTE: Novo posicionamento centralizado para o SVG do coração */
         .coracao-pulsante {
             position: absolute;
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle, #ff0000, #8b0000);
-            clip-path: path('M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z');
-            transform: scale(2.5);
-            z-index: 3;
-            /* BATIDA REAL: Duas batidas rápidas e uma pausa */
+            width: 100px;
+            height: 100px;
+            z-index: 5;
+            top: 35%; /* Alinha perfeitamente com a copa da árvore */
+            left: 50%;
+            transform: translate(-50%, -50%);
             animation: batidaReal 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
-            filter: drop-shadow(0 0 15px rgba(255,0,0,0.6));
+            filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.8));
         }
 
+        /* Mantive a sua ótima ideia de dupla batida cardíaca */
         @keyframes batidaReal {
-            0% { transform: scale(1); }
-            15% { transform: scale(1.3); }
-            30% { transform: scale(1.1); }
-            45% { transform: scale(1.4); }
-            100% { transform: scale(1); }
+            0% { transform: translate(-50%, -50%) scale(1); }
+            15% { transform: translate(-50%, -50%) scale(1.2); }
+            30% { transform: translate(-50%, -50%) scale(1.05); }
+            45% { transform: translate(-50%, -50%) scale(1.3); }
+            100% { transform: translate(-50%, -50%) scale(1); }
         }
 
-        /* TEXTO FINAL */
         .conteudo-texto {
             flex: 1.5;
             color: var(--sepia-escuro);
@@ -145,6 +145,7 @@
             .envelope { flex-direction: column; padding: 25px; text-align: center; }
             .conteudo-texto { text-align: center; }
             .arvore-svg { width: 200px; }
+            .coracao-pulsante { top: 30%; width: 80px; height: 80px; }
         }
     </style>
 </head>
@@ -163,7 +164,16 @@
                         <path d="M30 40 Q40 30 50 40 T70 40" stroke="#8c6d31" stroke-width="0.5" fill="none" opacity="0.5"/>
                         <path d="M20 50 Q50 20 80 50" stroke="#8c6d31" stroke-width="0.5" fill="none" opacity="0.3"/>
                     </svg>
-                    <div class="coracao-pulsante"></div>
+                    
+                    <svg class="coracao-pulsante" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#gradCora)"/>
+                        <defs>
+                            <radialGradient id="gradCora" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#ff0000" />
+                                <stop offset="100%" stop-color="#8b0000" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
                 </div>
 
                 <div class="conteudo-texto">
@@ -186,12 +196,10 @@
         const cosmos = document.getElementById('cosmos');
         const fragmento = document.createDocumentFragment();
 
-        // Criar estrelas de prata (frias) e incandescentes (quentes)
         for (let i = 0; i < 150; i++) {
             const estrela = document.createElement('div');
             estrela.className = 'estrela';
             
-            // Randomizar tipo: prata ou incandescente
             const isHot = Math.random() > 0.7;
             estrela.style.background = isHot ? '#ff9d00' : '#e2e8f0';
             if(isHot) estrela.style.boxShadow = '0 0 8px #ff9d00';
@@ -203,7 +211,6 @@
             estrela.style.top = Math.random() * 100 + '%';
             estrela.style.left = Math.random() * 100 + '%';
             
-            // Duração da animação aleatória para brilho dessincronizado
             estrela.style.setProperty('--d', (Math.random() * 3 + 2) + 's');
             
             fragmento.appendChild(estrela);
