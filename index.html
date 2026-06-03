@@ -1,190 +1,231 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Desfecho da Jornada - Dra. Débora</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Lora:ital,wght=1,400&family=Dancing+Script:wght=600&display=swap" rel="stylesheet">
+    <title>Homenagem Dra. Débora - Árvore Geológica da Mente</title>
     <style>
         :root {
-            --ouro-velho: #8c6d31;
-            --sepia-escuro: #2b1d04;
-            --prata: #e2e8f0;
-            --incandescente: #ff9d00;
+            --silver-glow: #e2e2e2;
+            --crystal-purple: #9b5de5;
+            --heart-red: #ff1e56;
         }
 
-        body, html {
-            margin: 0; padding: 0;
-            height: 100%; width: 100%;
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #0f0c20 0%, #030208 100%);
             overflow: hidden;
-            background: #020617;
-            font-family: 'Lora', serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Camada das estrelas geradas por JS */
-        #cosmos {
+        /* Fundo Cósmico Avançado */
+        .cosmic-bg {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 50px 160px, #ddd, rgba(0,0,0,0));
+            background-size: 200px 200px;
+            animation: nebulaDrift 20s linear infinite;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        /* O Card de Luxo Futurista */
+        .card {
+            position: relative;
+            width: 450px;
+            padding: 40px;
+            background: rgba(6, 6, 12, 0.85);
+            border-radius: 24px;
+            z-index: 1;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        /* Borda Prateada em Movimento Veloz */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, var(--silver-glow), transparent 20%, transparent, #8a9ba8, transparent 60%);
+            animation: rotateBorder 3s linear infinite;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #06060c;
+            border-radius: 21px;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
             z-index: 2;
         }
 
-        .estrela {
-            position: absolute;
-            border-radius: 50%;
-            animation: brilhar var(--d) infinite ease-in-out;
-        }
-
-        @keyframes brilhar {
-            0%, 100% { opacity: 0.2; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); filter: blur(1px); }
-        }
-
-        /* Container que centraliza o painel artístico */
-        .container-principal {
-            display: flex;
-            width: 100vw;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
+        /* Composicão: Árvore Geológica + Coração da Mente */
+        .artwork-container {
             position: relative;
-            z-index: 3;
-            background: linear-gradient(180deg, rgba(2,6,23,0.5) 0%, rgba(10,5,2,0.7) 100%);
+            width: 200px;
+            height: 220px;
+            margin: 0 auto 25px auto;
         }
 
-        /* O Painel que une a imagem realista e o texto */
-        .painel-artistico {
-            width: 90%;
-            max-width: 1100px;
-            height: 80vh;
-            max-height: 650px;
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(140, 109, 49, 0.3);
-            border-radius: 12px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 40px rgba(0,0,0,0.5);
-            display: flex;
-            overflow: hidden;
-            backdrop-filter: blur(8px);
+        .geological-tree {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 12px rgba(155, 93, 229, 0.6));
         }
 
-        /* Lado Esquerdo: A Arte Realista da Mente Psiquiátrica e Coração */
-        .area-imagem {
-            flex: 1.3;
-            background-image: url('brain_heart_art.jpg'); /* Nome do arquivo que você vai salvar */
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            border-right: 1px solid rgba(140, 109, 49, 0.2);
+        /* Animação Realista de Pulsação Sístole/Diástole no Coração */
+        .pulsing-heart {
+            transform-origin: 100px 115px;
+            animation: biologicalPulse 1.3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 30, 86, 0.8));
         }
 
-        /* Degradê suave sobre a imagem para integrar com o lado do texto */
-        .area-imagem::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent 75%, rgba(10, 15, 30, 0.95) 100%);
+        /* Brilho nos Cristais da Árvore */
+        .crystals {
+            animation: crystalGlow 3s ease-in-out infinite alternate;
         }
 
-        /* Lado Direito: O texto poético */
-        .conteudo-texto {
-            flex: 1;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: #f1f5f9;
-            text-align: right;
-            background: rgba(10, 15, 30, 0.85);
-        }
-
-        .mensagem {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.9rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: #f3e8ff;
+        /* Texto e Frase Interiores */
+        p {
+            font-style: italic;
+            line-height: 1.7;
+            color: #e0e0e6;
+            font-size: 1rem;
+            margin: 20px 0;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        .destaque-voce {
-            font-family: 'Cinzel', serif;
-            font-size: 2.6rem;
-            color: #ff4d4d;
+        .dra-info {
+            margin-top: 20px;
+        }
+
+        .dra-name {
             display: block;
-            margin-top: 15px;
-            letter-spacing: 4px;
-            text-shadow: 0 0 15px rgba(255, 77, 77, 0.6);
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #ffffff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
-        .assinatura {
-            margin-top: 40px;
-            border-top: 1px solid rgba(241, 245, 249, 0.1);
-            padding-top: 20px;
-            font-style: italic;
-            font-size: 1rem;
-            color: var(--ouro-velho);
-            opacity: 0.9;
+        .dra-profession {
+            display: block;
+            font-size: 0.8rem;
+            color: #a0a0b0;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: 5px;
         }
 
-        /* Responsividade para Celulares */
-        @media (max-width: 900px) {
-            .painel-artistico { flex-direction: column; height: auto; max-height: none; }
-            .area-imagem { height: 350px; border-right: none; border-bottom: 1px solid rgba(140, 109, 49, 0.2); }
-            .area-imagem::after { background: linear-gradient(180deg, transparent 60%, rgba(10, 15, 30, 0.95) 100%); }
-            .conteudo-texto { text-align: center; padding: 30px; }
+        /* Linha Divisória Luxuosa */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--silver-glow), transparent);
+            margin: 15px auto;
+            width: 60%;
+        }
+
+        /* KEYFRAMES DAS ANIMAÇÕES */
+        @keyframes biologicalPulse {
+            0% { transform: scale(1); }
+            12% { transform: scale(1.12) rotate(-1deg); }
+            24% { transform: scale(0.98); }
+            36% { transform: scale(1.06) rotate(1deg); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes rotateBorder {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes crystalGlow {
+            0% { fill: #9b5de5; filter: drop-shadow(0 0 2px #9b5de5); }
+            100% { fill: #00f5d4; filter: drop-shadow(0 0 8px #00f5d4); }
+        }
+
+        @keyframes nebulaDrift {
+            from { background-position: 0 0; }
+            to { background-position: 400px 200px; }
         }
     </style>
 </head>
 <body>
 
-    <div id="cosmos"></div>
+    <div class="cosmic-bg"></div>
 
-    <div class="container-principal">
-        <div class="painel-artistico">
+    <div class="card">
+        <div class="content">
             
-            <div class="area-imagem"></div>
+            <!-- Ilustração Vetorial Autoral: Árvore da Mente e Coração Geológico -->
+            <div class="artwork-container">
+                <svg class="geological-tree" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Raízes Profundas e Estrutura Rochosa da Mente (Base Geológica) -->
+                    <path d="M70 190 Q100 170 100 140 T130 190" stroke="#4a3b5c" stroke-width="8" fill="none" stroke-linecap="round"/>
+                    <path d="M50 205 Q100 185 100 140 T150 205" stroke="#2d223c" stroke-width="5" fill="none" stroke-linecap="round"/>
+                    <path d="M100 140 L100 110" stroke="#3a2d4b" stroke-width="12" fill="none"/>
+                    
+                    <!-- Camadas Geológicas de Sedimento na Base -->
+                    <ellipse cx="100" cy="200" rx="60" ry="12" fill="#1e1726"/>
+                    <ellipse cx="100" cy="203" rx="45" ry="8" fill="#3d2647"/>
 
-            <div class="conteudo-texto">
-                <p class="mensagem">
-                    "Por mais que nem sempre possamos ter exatamente o que queremos, que saibamos apreciar a beleza da jornada e dar sempre o nosso melhor para quem é especial..."
-                </p>
-                <span class="mensagem">E nesse momento...</span>
-                <span class="destaque-voce">É VOCÊ.</span>
-                
-                <div class="assinatura">
-                    Com carinho, do fundo da alma e da história.
-                </div>
+                    <!-- O Coração Anatômico Pulsante Interligado aos Galhos -->
+                    <g class="pulsing-heart">
+                        <!-- Tecido Cardíaco Base -->
+                        <path d="M100 70 C70 40, 45 65, 65 95 C80 120, 100 140, 100 140 C100 140, 120 120, 135 95 C155 65, 130 40, 100 70 Z" fill="#ff1e56"/>
+                        <!-- Detalhes de Artérias e Veias Metamórficas (Ramos da Árvore) -->
+                        <path d="M100 75 Q90 60 85 45" stroke="#00bbf9" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <path d="M100 75 Q115 55 120 35" stroke="#ff9f1c" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <path d="M90 95 Q80 90 70 80" stroke="#9b5de5" stroke-width="2" fill="none"/>
+                        <path d="M110 105 Q125 100 135 90" stroke="#9b5de5" stroke-width="2" fill="none"/>
+                    </g>
+
+                    <!-- Galhos Superiores da Mente se Transformando em Cristais Reluzentes -->
+                    <!-- Galho Esquerdo -->
+                    <path d="M85 55 Q60 35 40 45" stroke="#3a2d4b" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <polygon class="crystals" points="40,45 32,35 42,30 48,40" fill="#9b5de5"/>
+                    <polygon class="crystals" points="35,50 25,48 30,40" fill="#00f5d4"/>
+                    
+                    <!-- Galho Direito -->
+                    <path d="M115 55 Q140 30 160 40" stroke="#3a2d4b" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <polygon class="crystals" points="160,40 170,30 162,25 152,35" fill="#9b5de5"/>
+                    <polygon class="crystals" points="155,50 168,52 162,42" fill="#00f5d4"/>
+                    
+                    <!-- Galho Central Elevado (Conexão Cósmica) -->
+                    <path d="M100 45 L100 20" stroke="#5c4477" stroke-width="3" fill="none"/>
+                    <polygon class="crystals" points="100,20 93,5 107,5" fill="#ffffff"/>
+                </svg>
             </div>
 
+            <!-- Frase Solicitada -->
+            <p>"Por mais que nem sempre possamos ter exatamente o que queremos, que saibamos apreciar a beleza da jornada e dar sempre o nosso melhor para quem é especial..."</p>
+           
+            <div class="divider"></div>
+
+            <!-- Assinatura de Luxo -->
+            <div class="dra-info">
+                <span class="dra-name">Dra. Débora</span>
+                <span class="dra-profession">Geóloga • Ph.D.</span>
+            </div>
         </div>
     </div>
 
-    <script>
-        const cosmos = document.getElementById('cosmos');
-        const fragmento = document.createDocumentFragment();
-
-        // Gerador do céu estrelado dinâmico
-        for (let i = 0; i < 130; i++) {
-            const estrela = document.createElement('div');
-            estrela.className = 'estrela';
-            
-            const isHot = Math.random() > 0.75; // Mistura entre estrelas frias (prata) e quentes (incandescentes)
-            estrela.style.background = isHot ? '#ff9d00' : '#e2e8f0';
-            if(isHot) estrela.style.boxShadow = '0 0 10px #ff9d00, 0 0 4px #ff5500';
-            else estrela.style.boxShadow = '0 0 6px #e2e8f0';
-            
-            const tamanho = Math.random() * 2.5 + 0.5;
-            estrela.style.width = tamanho + 'px';
-            estrela.style.height = tamanho + 'px';
-            
-            estrela.style.top = Math.random() * 100 + '%';
-            estrela.style.left = Math.random() * 100 + '%';
-            
-            estrela.style.setProperty('--d', (Math.random() * 4 + 2) + 's');
-            
-            fragmento.appendChild(estrela);
-        }
-        cosmos.appendChild(fragmento);
-    </script>
 </body>
 </html>
