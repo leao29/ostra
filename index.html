@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Desfecho da Jornada - Dra. Débora</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Lora:ital,wght@1,400&family=Dancing+Script:wght=600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght=1,400&family=Dancing+Script:wght=600&display=swap" rel="stylesheet">
     <style>
         :root {
             --ouro-velho: #8c6d31;
@@ -21,7 +21,7 @@
             font-family: 'Lora', serif;
         }
 
-        /* AJUSTE: O cosmos agora fica acima do fundo, mas abaixo do envelope */
+        /* Camada das estrelas geradas por JS */
         #cosmos {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -40,112 +40,98 @@
             50% { opacity: 1; transform: scale(1.2); filter: blur(1px); }
         }
 
-        /* AJUSTE: Fundo com transparência para as estrelas aparecerem */
+        /* Container que centraliza o painel artístico */
         .container-principal {
             display: flex;
             width: 100vw;
             height: 100vh;
-            background: linear-gradient(90deg, rgba(2,6,23,0.7) 50%, rgba(26,16,5,0.8) 100%);
+            justify-content: center;
+            align-items: center;
             position: relative;
             z-index: 3;
+            background: linear-gradient(180deg, rgba(2,6,23,0.5) 0%, rgba(10,5,2,0.7) 100%);
         }
 
-        .area-envelope {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .envelope {
+        /* O Painel que une a imagem realista e o texto */
+        .painel-artistico {
             width: 90%;
-            max-width: 800px;
-            background: #f2e6ce;
-            background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
-            padding: 50px;
-            border: 1px solid #d4c4a8;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 100px rgba(139,94,26,0.2);
-            position: relative;
-            border-radius: 2px;
+            max-width: 1100px;
+            height: 80vh;
+            max-height: 650px;
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(140, 109, 49, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 40px rgba(0,0,0,0.5);
             display: flex;
-            flex-direction: row;
-            gap: 30px;
-            align-items: center;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
         }
 
-        .container-arvore {
-            flex: 1;
+        /* Lado Esquerdo: A Arte Realista da Mente Geológica, Árvore e Coração */
+        .area-imagem {
+            flex: 1.2;
+            background-image: url('SUA_IMAGEM_AQUI.jpg'); /* Substitua pelo link ou nome do arquivo da imagem salva */
+            background-size: cover;
+            background-position: center;
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            border-right: 1px solid rgba(140, 109, 49, 0.2);
         }
 
-        .arvore-svg {
-            width: 300px;
-            filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
-            z-index: 4;
-        }
-
-        /* AJUSTE: Novo posicionamento centralizado para o SVG do coração */
-        .coracao-pulsante {
+        /* Degradê suave sobre a imagem para integrar com o lado do texto */
+        .area-imagem::after {
+            content: '';
             position: absolute;
-            width: 100px;
-            height: 100px;
-            z-index: 5;
-            top: 35%; /* Alinha perfeitamente com a copa da árvore */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: batidaReal 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
-            filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.8));
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent 70%, rgba(15, 23, 42, 0.9) 100%);
         }
 
-        /* Mantive a sua ótima ideia de dupla batida cardíaca */
-        @keyframes batidaReal {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            15% { transform: translate(-50%, -50%) scale(1.2); }
-            30% { transform: translate(-50%, -50%) scale(1.05); }
-            45% { transform: translate(-50%, -50%) scale(1.3); }
-            100% { transform: translate(-50%, -50%) scale(1); }
-        }
-
+        /* Lado Direito: O texto poético */
         .conteudo-texto {
-            flex: 1.5;
-            color: var(--sepia-escuro);
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #f1f5f9;
             text-align: right;
+            background: rgba(10, 15, 30, 0.7);
         }
 
         .mensagem {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            line-height: 1.5;
+            font-size: 1.9rem;
+            line-height: 1.6;
             margin-bottom: 20px;
+            color: #f3e8ff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .destaque-voce {
             font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            color: #8b0000;
+            font-size: 2.6rem;
+            color: #ff4d4d;
             display: block;
             margin-top: 15px;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(255, 77, 77, 0.6);
         }
 
         .assinatura {
-            border-top: 1px solid rgba(0,0,0,0.1);
-            padding-top: 15px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(241, 245, 249, 0.1);
+            padding-top: 20px;
             font-style: italic;
-            font-size: 0.9rem;
-            opacity: 0.7;
+            font-size: 1rem;
+            color: var(--ouro-velho);
+            opacity: 0.9;
         }
 
-        @media (max-width: 768px) {
-            .envelope { flex-direction: column; padding: 25px; text-align: center; }
-            .conteudo-texto { text-align: center; }
-            .arvore-svg { width: 200px; }
-            .coracao-pulsante { top: 30%; width: 80px; height: 80px; }
+        /* Responsividade para Celulares */
+        @media (max-width: 900px) {
+            .painel-artistico { flex-direction: column; height: auto; max-height: none; }
+            .area-imagem { height: 300px; border-right: none; border-bottom: 1px solid rgba(140, 109, 49, 0.2); }
+            .area-imagem::after { background: linear-gradient(180deg, transparent 60%, rgba(10, 15, 30, 0.9) 100%); }
+            .conteudo-texto { text-align: center; padding: 30px; }
         }
     </style>
 </head>
@@ -154,41 +140,22 @@
     <div id="cosmos"></div>
 
     <div class="container-principal">
-        <div class="area-envelope">
-            <div class="envelope">
+        <div class="painel-artistico">
+            
+            <div class="area-imagem"></div>
+
+            <div class="conteudo-texto">
+                <p class="mensagem">
+                    "Por mais que nem sempre possamos ter exatamente o que queremos, que saibamos apreciar a beleza da jornada e dar sempre o nosso melhor para quem é especial..."
+                </p>
+                <span class="mensagem">E nesse momento...</span>
+                <span class="destaque-voce">É VOCÊ.</span>
                 
-                <div class="container-arvore">
-                    <svg class="arvore-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 85 V60 M50 60 L35 45 M50 60 L65 45 M35 45 L25 35 M65 45 L75 35 M50 60 L50 40" stroke="#4a3b13" stroke-width="2" fill="none"/>
-                        <circle cx="50" cy="85" r="2" fill="#4a3b13"/>
-                        <path d="M30 40 Q40 30 50 40 T70 40" stroke="#8c6d31" stroke-width="0.5" fill="none" opacity="0.5"/>
-                        <path d="M20 50 Q50 20 80 50" stroke="#8c6d31" stroke-width="0.5" fill="none" opacity="0.3"/>
-                    </svg>
-                    
-                    <svg class="coracao-pulsante" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#gradCora)"/>
-                        <defs>
-                            <radialGradient id="gradCora" cx="50%" cy="50%" r="50%">
-                                <stop offset="0%" stop-color="#ff0000" />
-                                <stop offset="100%" stop-color="#8b0000" />
-                            </radialGradient>
-                        </defs>
-                    </svg>
+                <div class="assinatura">
+                    Com carinho, do fundo da alma e da história.
                 </div>
-
-                <div class="conteudo-texto">
-                    <p class="mensagem">
-                        "Por mais que nem sempre possamos ter exatamente o que queremos, que saibamos apreciar a beleza da jornada e dar sempre o nosso melhor para quem é especial..."
-                    </p>
-                    <span class="mensagem">E nesse momento...</span>
-                    <span class="destaque-voce">É VOCÊ.</span>
-                    
-                    <div class="assinatura">
-                        Com carinho, do fundo da alma e da história.
-                    </div>
-                </div>
-
             </div>
+
         </div>
     </div>
 
@@ -196,22 +163,25 @@
         const cosmos = document.getElementById('cosmos');
         const fragmento = document.createDocumentFragment();
 
-        for (let i = 0; i < 150; i++) {
+        // Criação das estrelas pulsantes (Prata e Incandescentes)
+        for (let i = 0; i < 120; i++) {
             const estrela = document.createElement('div');
             estrela.className = 'estrela';
             
-            const isHot = Math.random() > 0.7;
+            const isHot = Math.random() > 0.75; // 25% serão incandescentes quentes
             estrela.style.background = isHot ? '#ff9d00' : '#e2e8f0';
-            if(isHot) estrela.style.boxShadow = '0 0 8px #ff9d00';
+            if(isHot) estrela.style.boxShadow = '0 0 10px #ff9d00, 0 0 4px #ff5500';
+            else estrela.style.boxShadow = '0 0 6px #e2e8f0';
             
-            const tamanho = Math.random() * 3;
+            const tamanho = Math.random() * 2.5 + 0.5;
             estrela.style.width = tamanho + 'px';
             estrela.style.height = tamanho + 'px';
             
             estrela.style.top = Math.random() * 100 + '%';
             estrela.style.left = Math.random() * 100 + '%';
             
-            estrela.style.setProperty('--d', (Math.random() * 3 + 2) + 's');
+            // Ritmo de pulsação dessincronizado
+            estrela.style.setProperty('--d', (Math.random() * 4 + 2) + 's');
             
             fragmento.appendChild(estrela);
         }
