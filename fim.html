@@ -1,352 +1,350 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>O Encontro com o Destino - Fim</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --azul-cosmos: #03081e;
-            --ouro-escuro: #4a3b13;
-            --ouro-brilhante: #8c7333;
-            --prata-metal: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 50%, #64748b 100%);
-            --texto-cor: #211a10;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VOCÊ É FASCINANTE</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;1,500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#000;color:#e9e4d4;font-family:'Cormorant Garamond',serif;overflow-x:hidden}
+  /* Scrollbar prata luxuosa */
+  ::-webkit-scrollbar{width:10px}
+  ::-webkit-scrollbar-track{background:linear-gradient(180deg,#0a0a14,#1a1a2a)}
+  ::-webkit-scrollbar-thumb{
+    background:linear-gradient(180deg,#f5f5f5,#b8b8c8,#8a8a9a,#f5f5f5);
+    border-radius:10px;
+    box-shadow:0 0 12px rgba(220,220,255,.6),inset 0 0 4px rgba(255,255,255,.5);
+  }
+  ::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#fff,#c0c0d0,#fff)}
+  html{scroll-behavior:smooth}
 
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+  /* Fundo cósmico */
+  .cosmos{position:fixed;inset:0;z-index:-2;background:
+    radial-gradient(ellipse at 20% 10%, #0c0f25 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, #1a0a25 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 50%, #050510 0%, #000 80%);
+  }
+  .stars,.stars2,.stars3{position:fixed;inset:0;z-index:-1;pointer-events:none}
+  .stars{background-image:
+    radial-gradient(1px 1px at 10% 20%, #fff, transparent),
+    radial-gradient(1px 1px at 30% 70%, #e0e0ff, transparent),
+    radial-gradient(2px 2px at 60% 40%, #fff, transparent),
+    radial-gradient(1px 1px at 80% 10%, #c0c0e0, transparent),
+    radial-gradient(1px 1px at 90% 60%, #fff, transparent),
+    radial-gradient(2px 2px at 15% 85%, #fff, transparent),
+    radial-gradient(1px 1px at 50% 95%, #d0d0ff, transparent),
+    radial-gradient(1px 1px at 70% 25%, #fff, transparent);
+    background-size:100% 100%;
+    animation:twinkle 3s ease-in-out infinite alternate;
+  }
+  .stars2{background-image:
+    radial-gradient(1.5px 1.5px at 25% 55%, silver, transparent),
+    radial-gradient(2px 2px at 45% 15%, #fff, transparent),
+    radial-gradient(1px 1px at 85% 45%, #c8c8e8, transparent),
+    radial-gradient(2px 2px at 5% 60%, #fff, transparent);
+    animation:twinkle 4.5s ease-in-out 1s infinite alternate;
+  }
+  .stars3{background-image:
+    radial-gradient(1px 1px at 35% 35%, #fff, transparent),
+    radial-gradient(2.5px 2.5px at 65% 75%, #f0f0ff, transparent),
+    radial-gradient(1px 1px at 95% 25%, silver, transparent);
+    animation:twinkle 6s ease-in-out .5s infinite alternate;
+  }
+  @keyframes twinkle{0%{opacity:.3;filter:brightness(.7)}100%{opacity:1;filter:brightness(1.3)}}
 
-        body {
-            margin: 0; padding: 0;
-            width: 100%; min-height: 100vh;
-            background-color: var(--azul-cosmos);
-            font-family: 'Lora', serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 60px 20px;
-            overflow-x: hidden;
-            opacity: 0;
-            transition: opacity 2s ease;
-        }
+  /* Estrelas cadentes */
+  .shooting{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;overflow:hidden}
+  .shooting span{
+    position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;
+    box-shadow:0 0 10px 2px #fff;
+    animation:shoot 6s linear infinite;
+  }
+  .shooting span::after{content:"";position:absolute;top:0;left:0;width:160px;height:1px;
+    background:linear-gradient(90deg,rgba(255,255,255,.9),transparent);transform:translateX(-160px);}
+  .shooting span:nth-child(1){top:10%;left:80%;animation-delay:0s}
+  .shooting span:nth-child(2){top:30%;left:90%;animation-delay:2.3s}
+  .shooting span:nth-child(3){top:60%;left:70%;animation-delay:4.1s}
+  .shooting span:nth-child(4){top:20%;left:60%;animation-delay:1.4s}
+  .shooting span:nth-child(5){top:75%;left:95%;animation-delay:3.2s}
+  @keyframes shoot{
+    0%{transform:translate(0,0) rotate(215deg);opacity:1}
+    70%{opacity:1}
+    100%{transform:translate(-900px,900px) rotate(215deg);opacity:0}
+  }
 
-        #fundo-cosmos {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at center, #0a163a 0%, var(--azul-cosmos) 100%);
-        }
+  /* Título */
+  header{
+    min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:40px 20px;position:relative;
+  }
+  h1.title{
+    font-family:'Cinzel',serif;font-weight:900;
+    font-size:clamp(2.4rem,7vw,6rem);
+    letter-spacing:.18em;
+    background:linear-gradient(90deg,#d4af37,#fff5c2,#f5d76e,#d4af37,#a8893c,#fff5c2);
+    background-size:300% 100%;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 40px rgba(212,175,55,.25);
+    animation:shine 6s linear infinite;
+  }
+  @keyframes shine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+  header p.sub{
+    margin-top:18px;font-style:italic;color:#cfcfe4;letter-spacing:.15em;
+    font-size:clamp(.9rem,1.6vw,1.1rem);opacity:.85;
+  }
 
-        .estrela {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: brilho infinite ease-in-out;
-        }
+  /* Card central com dourado correndo */
+  .stage{display:flex;justify-content:center;align-items:center;padding:60px 20px 100px}
+  .card-wrap{position:relative;perspective:1200px}
+  .card{
+    position:relative;width:min(560px,92vw);padding:48px 38px;border-radius:22px;
+    background:radial-gradient(circle at 30% 10%,#1b1530 0%, #0a0815 70%, #050308 100%);
+    box-shadow:0 30px 80px rgba(0,0,0,.7), inset 0 0 60px rgba(212,175,55,.06);
+    overflow:hidden;transform-style:preserve-3d;
+    transition:transform .8s cubic-bezier(.2,.9,.2,1), box-shadow .8s;
+    cursor:pointer;
+  }
+  .card:hover{transform:scale(1.06) rotateX(2deg);box-shadow:0 40px 120px rgba(212,175,55,.35), inset 0 0 80px rgba(212,175,55,.12)}
+  /* Borda dourada correndo */
+  .card::before{
+    content:"";position:absolute;inset:-2px;border-radius:24px;padding:2px;
+    background:conic-gradient(from var(--a,0deg),
+      #6b4f15, #d4af37, #fff3a8, #d4af37, #8a6b1e, #d4af37, #fff3a8, #d4af37, #6b4f15);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;
+    animation:spin 5s linear infinite;
+    filter:drop-shadow(0 0 12px rgba(212,175,55,.55));
+  }
+  @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+  @keyframes spin{to{--a:360deg}}
 
-        @keyframes brilho {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
+  .head-art{display:flex;justify-content:center;margin-bottom:18px}
+  .head-art svg{width:170px;height:170px;filter:drop-shadow(0 6px 20px rgba(212,175,55,.25))}
 
-        .titulo-final {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            text-align: center;
-            margin-bottom: 40px;
-            background: var(--prata-metal);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.9));
-            font-weight: 700;
-        }
+  .heart{display:flex;justify-content:center;margin:10px 0 22px}
+  .heart svg{width:90px;height:90px;animation:beat 1.1s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(220,40,60,.6))}
+  @keyframes beat{
+    0%,100%{transform:scale(1)}
+    14%{transform:scale(1.18)}
+    28%{transform:scale(1)}
+    42%{transform:scale(1.12)}
+    70%{transform:scale(1)}
+  }
 
-        .card-principal {
-            max-width: 800px;
-            width: 100%;
-            background: var(--ouro-escuro);
-            padding: 14px;
-            border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.9), inset 0 0 20px rgba(140, 115, 51, 0.6);
-        }
+  .quote{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.6;text-align:center;
+    color:#f3ecd2;
+  }
+  .quote .sig{
+    display:block;margin-top:18px;font-family:'Cinzel',serif;font-style:normal;
+    letter-spacing:.25em;font-size:.85rem;
+    color:#d4af37;text-transform:uppercase;
+  }
 
-        .papel-antigo {
-            background-color: #f5eed7;
-            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
-            padding: 60px 40px;
-            color: var(--texto-cor);
-            border-radius: 12px;
-            border: 2px solid var(--ouro-brilhante);
-            box-shadow: inset 0 0 40px rgba(74, 59, 19, 0.25);
-            text-align: center;
-        }
+  /* Player de música */
+  .player{
+    position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:50;
+    display:flex;align-items:center;gap:14px;padding:12px 18px;border-radius:50px;
+    background:rgba(10,8,20,.75);backdrop-filter:blur(14px);
+    border:1px solid rgba(212,175,55,.4);
+    box-shadow:0 10px 40px rgba(0,0,0,.6), 0 0 30px rgba(212,175,55,.15);
+    font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.15em;color:#e9e4d4;
+  }
+  .player button{
+    background:linear-gradient(135deg,#d4af37,#f5d76e);border:none;color:#1a1208;
+    width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:14px;font-weight:900;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px rgba(212,175,55,.5);transition:transform .2s;
+  }
+  .player button:hover{transform:scale(1.1)}
+  .player input[type=range]{
+    -webkit-appearance:none;appearance:none;width:120px;height:4px;border-radius:4px;
+    background:linear-gradient(90deg,#d4af37 var(--p,50%), rgba(255,255,255,.15) var(--p,50%));
+    outline:none;cursor:pointer;
+  }
+  .player input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;width:14px;height:14px;border-radius:50%;
+    background:#fff5c2;box-shadow:0 0 8px #d4af37;cursor:pointer;
+  }
 
-        .painel-musica-inline {
-            background: rgba(3, 8, 30, 0.95);
-            border: 1px solid var(--ouro-brilhante);
-            padding: 12px 25px;
-            border-radius: 30px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        .btn-controle {
-            background: var(--ouro-escuro);
-            border: 1px solid var(--ouro-brilhante);
-            color: #fff;
-            padding: 6px 16px;
-            border-radius: 15px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn-controle:hover { background: var(--ouro-brilhante); }
-        .vol-slider { cursor: pointer; accent-color: var(--ouro-brilhante); width: 100px; }
-
-        .card-desfecho {
-            background: #fdfbf7;
-            border: 3px solid #cbd5e1;
-            border-radius: 15px;
-            padding: 50px 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-
-        /* --- ANIMAÇÃO EXCLUSIVA DA OSTRA --- */
-        .cenario-ostra {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 160px;
-            margin: 20px 0 40px 0;
-            perspective: 1000px;
-        }
-
-        .ostra-container {
-            position: relative;
-            width: 180px;
-            height: 130px;
-            cursor: pointer;
-            transform-style: preserve-3d;
-        }
-
-        .concha-superior {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 52%;
-            background: #e2e8f0;
-            border: 3px solid #94a3b8;
-            border-radius: 90px 90px 15px 15px;
-            z-index: 3;
-            transform-origin: bottom center;
-            transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: inset 0 6px 12px #fff, 0 -2px 5px rgba(0,0,0,0.2);
-        }
-
-        .concha-inferior {
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 52%;
-            background: #cbd5e1;
-            border: 3px solid #94a3b8;
-            border-radius: 15px 15px 90px 90px;
-            z-index: 1;
-            box-shadow: inset 0 -6px 12px rgba(0,0,0,0.2);
-        }
-
-        .perola-negra {
-            position: absolute;
-            bottom: 25%; left: 50%;
-            width: 30px; height: 30px;
-            background: radial-gradient(circle at 35% 35%, #5a697e 0%, #1e293b 45%, #020617 90%);
-            border-radius: 50%;
-            z-index: 2;
-            transform: translateX(-50%) scale(0);
-            transition: transform 1.5s ease 0.4s, box-shadow 1.5s ease 0.4s;
-        }
-
-        .perola-negra::before {
-            content: '';
-            position: absolute;
-            top: 20%; left: 25%; width: 5px; height: 5px;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.8;
-        }
-
-        /* Classes de ativação via JavaScript */
-        .ostra-container.abrir-concha .concha-superior {
-            transform: rotateX(-115deg) translateY(-10px);
-        }
-
-        .ostra-container.abrir-concha .perola-negra {
-            transform: translateX(-50%) scale(1);
-            box-shadow: 0 0 25px rgba(140, 115, 51, 0.6), 0 0 50px rgba(255,255,255,0.15);
-            animation: flutuarPerola 3s infinite ease-in-out 1.9s;
-        }
-
-        @keyframes flutuarPerola {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-8px); }
-        }
-        /* ---------------------------------- */
-
-        .texto-conclusao {
-            font-size: 1.25rem;
-            line-height: 2;
-            text-align: justify;
-            margin-bottom: 30px;
-        }
-
-        .mensagem-final {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            letter-spacing: 4px;
-            color: var(--ouro-escuro);
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        .creditos {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-top: 50px;
-        }
-
-        @media (max-width: 600px) {
-            .titulo-final { font-size: 1.7rem; letter-spacing: 3px; }
-            .papel-antigo { padding: 40px 20px; }
-            .texto-conclusao { font-size: 1.1rem; line-height: 1.8; }
-            .mensagem-final { font-size: 1.4rem; }
-            .cenario-ostra { height: 130px; }
-            .ostra-container { width: 140px; height: 100px; }
-            .perola-negra { width: 24px; height: 24px; }
-        }
-    </style>
+  /* Seção Fim (folha que fecha) */
+  .end-section{min-height:100vh;display:flex;align-items:center;justify-content:center;perspective:1600px;padding:60px 20px}
+  .leaf{
+    position:relative;width:min(620px,94vw);height:min(420px,70vh);
+    transform-style:preserve-3d;transform-origin:left center;
+    transition:transform 1.8s cubic-bezier(.7,.05,.3,1);
+    background:linear-gradient(135deg,#0a0815,#1a1530 60%,#0a0815);
+    border:1px solid rgba(212,175,55,.35);border-radius:14px;
+    box-shadow:0 30px 80px rgba(0,0,0,.7), inset 0 0 80px rgba(212,175,55,.08);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+  }
+  .leaf::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(120deg,transparent 40%,rgba(212,175,55,.08) 50%,transparent 60%);
+    pointer-events:none;
+  }
+  .leaf.closing{transform:rotateY(-92deg)}
+  .leaf h2{
+    font-family:'Orbitron',sans-serif;font-weight:900;
+    font-size:clamp(4rem,14vw,10rem);letter-spacing:.35em;
+    background:linear-gradient(180deg,#fff5c2,#d4af37 40%,#8a6b1e 80%,#fff5c2);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 60px rgba(212,175,55,.4);
+    text-indent:.35em;
+  }
+  .end-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+    color:#9a96a8;font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.7rem;text-transform:uppercase;opacity:.8}
+</style>
 </head>
-<body onclick="iniciarAudio()">
+<body>
 
-    <div id="fundo-cosmos"></div>
+<div class="cosmos"></div>
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
+<div class="shooting"><span></span><span></span><span></span><span></span><span></span></div>
 
-    <h1 class="titulo-final">O Destino Encontrado</h1>
+<header>
+  <h1 class="title">VOCÊ É FASCINANTE</h1>
+  <p class="sub">— uma carta cósmica para alguém especial —</p>
+</header>
 
-    <div class="card-principal">
-        <div class="papel-antigo">
-            
-            <div class="painel-musica-inline" onclick="event.stopPropagation()">
-                <button class="btn-controle" id="playPause">PAUSE</button>
-                <div style="display:flex; align-items:center; gap:8px;">
-                    <span style="color:white; font-size:12px;">🔈</span>
-                    <input type="range" class="vol-slider" min="0" max="1" step="0.1" value="1" oninput="ajustarVol(this.value)">
-                    <span style="color:white; font-size:12px;">🔊</span>
-                </div>
-            </div>
+<section class="stage">
+  <div class="card-wrap">
+    <div class="card" id="card">
+      <div class="head-art" aria-label="Cabeça com árvore neural">
+        <!-- Cabeça com árvore (símbolo da psiquiatria: mente em ramificação) -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="skin" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#e9c9a0"/>
+              <stop offset="1" stop-color="#7a5a3a"/>
+            </linearGradient>
+            <linearGradient id="tree" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#fff5c2"/>
+              <stop offset=".5" stop-color="#d4af37"/>
+              <stop offset="1" stop-color="#6b4f15"/>
+            </linearGradient>
+          </defs>
+          <!-- Perfil de cabeça realista estilizada -->
+          <path d="M55,150 C40,130 35,100 45,75 C55,45 85,30 115,35 C150,40 165,70 160,100 C158,115 165,120 168,130 C171,140 160,145 150,143 C148,155 145,168 130,170 L70,170 C60,170 58,160 55,150 Z"
+                fill="url(#skin)" stroke="#3a2818" stroke-width="1.2"/>
+          <!-- Árvore neural dentro -->
+          <g stroke="url(#tree)" stroke-width="1.6" fill="none" stroke-linecap="round">
+            <path d="M105,150 L105,110"/>
+            <path d="M105,130 C95,120 85,115 78,110"/>
+            <path d="M105,125 C115,118 125,115 132,112"/>
+            <path d="M105,115 C95,105 88,98 82,90"/>
+            <path d="M105,110 C115,100 122,92 128,84"/>
+            <path d="M105,100 C100,90 95,82 90,72"/>
+            <path d="M105,100 C112,90 118,82 122,72"/>
+            <path d="M82,90 C76,84 72,78 70,72"/>
+            <path d="M128,84 C134,78 138,72 140,66"/>
+            <path d="M90,72 C86,66 84,60 84,55"/>
+            <path d="M122,72 C126,66 128,60 128,55"/>
+          </g>
+          <!-- Pequenas frutas/sinapses douradas -->
+          <g fill="#fff5c2">
+            <circle cx="70" cy="72" r="2.2"/>
+            <circle cx="84" cy="55" r="2.2"/>
+            <circle cx="90" cy="72" r="1.8"/>
+            <circle cx="105" cy="100" r="2"/>
+            <circle cx="122" cy="72" r="2.2"/>
+            <circle cx="128" cy="55" r="2.2"/>
+            <circle cx="140" cy="66" r="2"/>
+            <circle cx="132" cy="112" r="1.8"/>
+            <circle cx="78" cy="110" r="1.8"/>
+          </g>
+        </svg>
+      </div>
 
-            <div class="card-desfecho">
-                
-                <!-- Área Corrigida da Ostra Animada -->
-                <div class="cenario-ostra">
-                    <div class="ostra-container" id="janelaOstra" onclick="manualOstra(event)">
-                        <div class="concha-superior"></div>
-                        <div class="perola-negra"></div>
-                        <div class="concha-inferior"></div>
-                    </div>
-                </div>
+      <div class="heart" aria-label="Coração pulsante">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="hg" cx=".35" cy=".35" r=".75">
+              <stop offset="0" stop-color="#ff6b7a"/>
+              <stop offset=".55" stop-color="#c1142a"/>
+              <stop offset="1" stop-color="#3a0008"/>
+            </radialGradient>
+          </defs>
+          <path d="M50,86 C20,66 8,48 12,30 C15,16 30,10 42,18 C46,21 49,25 50,28 C51,25 54,21 58,18 C70,10 85,16 88,30 C92,48 80,66 50,86 Z"
+                fill="url(#hg)" stroke="#4a0008" stroke-width="1"/>
+          <!-- Brilho realista -->
+          <path d="M30,30 C28,40 32,52 40,60" stroke="rgba(255,200,210,.6)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <ellipse cx="38" cy="32" rx="6" ry="3" fill="rgba(255,220,225,.5)"/>
+        </svg>
+      </div>
 
-                <p class="texto-conclusao">
-                    Existe uma célebre fábula sobre a ostra: para que uma pérola nasça, é preciso que um grão de areia entre em seu interior e cause uma ferida profunda. A ostra não destrói o invasor; em vez disso, ela o envolve cuidadosamente com camadas de nácar brilhante, transformando a dor e o incômodo em uma joia rara.
-                </p>
-                
-                <p class="texto-conclusao">
-                    A estrada longa ficou para trás e as dores do caminho transformaram-se em preciosas pérolas de sabedoria. Sob o manto infinito do cosmos, compreendemos que cada curva, cada grão de areia e cada passo incerto faziam parte de um plano maior. O horizonte não é mais um limite distante; agora, ele é o chão que você pisa com paz no coração, carregando a beleza da sua própria pérola negra.
-                </p>
-
-                <div class="mensagem-final">FIM DA JORNADA</div>
-
-                <div class="creditos">Gratidão por cada passo compartilhado</div>
-
-            </div>
-
-        </div>
+      <p class="quote">
+        “Por mais que nem sempre possamos ter exatamente o que queremos,
+        que saibamos apreciar a beleza da jornada e dar sempre o nosso
+        melhor para quem é especial...”
+        <span class="sig">Nesse momento — é Você.</span>
+      </p>
     </div>
+  </div>
+</section>
 
-    <audio id="trilha" src="elvis.html.mp3" loop></audio>
+<!-- Player de música -->
+<div class="player" role="region" aria-label="Player de música">
+  <button id="playBtn" title="Play/Pause">▶</button>
+  <span>VOL</span>
+  <input type="range" id="vol" min="0" max="100" value="50" style="--p:50%">
+</div>
 
-    <script>
-        const audio = document.getElementById('trilha');
-        const btnPP = document.getElementById('playPause');
-        const mOstra = document.getElementById('janelaOstra');
+<audio id="audio" loop preload="auto">
+  <!-- Substitua pelo caminho real no seu repositório GitHub -->
+  <source src="elvis.html.mp3" type="audio/mpeg">
+</audio>
 
-        // Criação dinâmica do fundo de estrelas
-        const cosmos = document.getElementById('fundo-cosmos');
-        for (let i = 0; i < 50; i++) {
-            const estrela = document.createElement('div');
-            estrela.className = 'estrela';
-            const tamanho = Math.random() * 3;
-            estrela.style.width = tamanho + 'px';
-            estrela.style.height = tamanho + 'px';
-            estrela.style.top = Math.random() * 100 + '%';
-            estrela.style.left = Math.random() * 100 + '%';
-            estrela.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            cosmos.appendChild(estrela);
-        }
+<!-- Fim -->
+<section class="end-section">
+  <div class="leaf" id="leaf">
+    <h2>FIM</h2>
+    <span class="end-hint">role para fechar</span>
+  </div>
+</section>
 
-        window.onload = () => {
-            document.body.style.opacity = '1';
+<script>
+  // Player
+  const audio = document.getElementById('audio');
+  const btn = document.getElementById('playBtn');
+  const vol = document.getElementById('vol');
+  audio.volume = 0.5;
 
-            // Resgata o tempo síncrono da música
-            const tempoSalvo = localStorage.getItem('musica_tempo');
-            if (tempoSalvo) {
-                audio.currentTime = parseFloat(tempoSalvo);
-            }
-            
-            audio.play().then(() => {
-                btnPP.innerText = "PAUSE";
-            }).catch(() => {
-                btnPP.innerText = "PLAY";
-            });
+  btn.addEventListener('click', async () => {
+    try {
+      if (audio.paused) { await audio.play(); btn.textContent = '❚❚'; }
+      else { audio.pause(); btn.textContent = '▶'; }
+    } catch(e){ console.log('Audio:', e); }
+  });
 
-            // Dispara a animação automática da ostra após 1.2 segundos
-            setTimeout(() => {
-                mOstra.classList.add('abrir-concha');
-            }, 1200);
-        };
+  vol.addEventListener('input', e => {
+    const v = e.target.value;
+    audio.volume = v/100;
+    vol.style.setProperty('--p', v + '%');
+  });
 
-        // Permite abrir e fechar a concha ao tocar nela
-        function manualOstra(e) {
-            e.stopPropagation();
-            mOstra.classList.toggle('abrir-concha');
-        }
+  // Tenta autoplay (alguns navegadores bloqueiam até interação)
+  window.addEventListener('load', () => {
+    audio.volume = 0.5;
+    audio.play().then(()=>{ btn.textContent = '❚❚'; }).catch(()=>{});
+  });
 
-        function iniciarAudio() {
-            if (audio.paused) {
-                audio.play();
-                btnPP.innerText = "PAUSE";
-            }
-        }
-
-        btnPP.onclick = (e) => {
-            e.stopPropagation();
-            if (audio.paused) {
-                audio.play();
-                btnPP.innerText = "PAUSE";
-            } else {
-                audio.pause();
-                btnPP.innerText = "PLAY";
-            }
-        };
-
-        function ajustarVol(v) { audio.volume = v; }
-    </script>
+  // Folha que fecha ao chegar no fim
+  const leaf = document.getElementById('leaf');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        setTimeout(() => leaf.classList.add('closing'), 600);
+      } else {
+        leaf.classList.remove('closing');
+      }
+    });
+  }, { threshold: 0.6 });
+  obs.observe(leaf);
+</script>
 </body>
 </html>
